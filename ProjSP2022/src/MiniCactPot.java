@@ -295,7 +295,7 @@ public class MiniCactPot extends JFrame {
 	 */
 	public String createRewardsTextArea() {
 		// Return the proper string for the rewards table
-		return "PUT THE REWARDS TABLE HERE";
+		return "REWARDS";
 				
 	}
 	/*
@@ -313,11 +313,33 @@ public class MiniCactPot extends JFrame {
 		 * repeating any number
 		 */
 		public void resetMatrix(int[][] matrix) {
-			// This is a dummy answer, add the code necessary to fill the array
 			for(int i=0;i<3;i++)
 				for(int j=0;j<3;j++)
-					matrix[i][j]=1;
-			
+					matrix[i][j]=0;
+			Random random = new Random();
+
+			int count=0;
+
+			while (count<9){
+				int num = random.nextInt(1,10);
+external:		for(int i=0;i<3;i++)
+					for(int j=0;j<3;j++){
+						if (matrix[i][j]==0){
+							matrix[i][j]=num;
+							count ++;
+							break external;
+						} else {
+							if (matrix[i][j]==num){
+								break external;
+							}
+
+						}
+					}
+			}
+
+
+
+
 		}
 		/*
 		 *  To obtain the matrix. Do not change
